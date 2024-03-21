@@ -37,6 +37,7 @@ const loginHandler = async(req,res,next)=>{
     })
 
   } catch (error) {
+    console.log(error);
     res.status(error.status || 500).json({
       status: "Error",
       message: error.message
@@ -44,4 +45,18 @@ const loginHandler = async(req,res,next)=>{
   }
 }
 
-module.exports = {loginHandler}
+const testHandler = (req,res,next)=>{
+  try {
+    res.json({
+      message: "Hello!"
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(error.status || 500).json({
+      status: "Error",
+      message: error.message
+    })
+  }
+}
+
+module.exports = {loginHandler, testHandler}
